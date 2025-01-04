@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-const int MazSize = 100;
+const int MaxSize = 100;
 int arr[MaxSize];
 int currentSize = 0;
 
