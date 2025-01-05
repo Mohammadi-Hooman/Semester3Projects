@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std;
 
-const int MAX_SIZE = 100;
-int queue[MAX_SIZE];
+const int MaxSize = 100;
+int queue[MaxSize];
 int front = -1;
 int rear = -1;
 
@@ -11,12 +11,12 @@ bool isEmpty() {
 }
 
 bool isFull() {
-    return (rear == MAX_SIZE - 1);
+    return (rear == MaxSize - 1);
 }
 
-void Enqueue(int value) {
+void Enqueue(int object) {
     if (isFull()) {
-        cout << "Queue is full!" << endl;
+        cout << "Queue is full" << endl;
         return;
     }
     if (isEmpty()) {
@@ -25,28 +25,25 @@ void Enqueue(int value) {
     else {
         rear++;
     }
-    queue[rear] = value;
-    cout << "Enqueued: " << value << endl;
+    queue[rear] = object;
 }
 
 int Dequeue() {
     if (isEmpty()) {
-        cout << "Queue is empty!" << endl;
+        cout << "Queue is empty" << endl;
         return -1;
     }
-    int dequeuedValue = queue[front];
     if (front == rear) {
         front = rear = -1;
     }
     else {
         front++;
     }
-    return dequeuedValue;
 }
 
 int Peek() {
     if (isEmpty()) {
-        cout << "Queue is empty!" << endl;
+        cout << "Queue is empty" << endl;
         return -1;
     }
     return queue[front];
@@ -54,40 +51,16 @@ int Peek() {
 
 void ReverseQueue() {
     if (isEmpty()) {
-        cout << "Queue is empty!" << endl;
+        cout << "Queue is empty" << endl;
         return;
     }
     int start = front;
     int end = rear;
     while (start < end) {
-        int temp = queue[start];
+        int x = queue[start];
         queue[start] = queue[end];
-        queue[end] = temp;
+        queue[end] = x;
         start++;
         end--;
     }
-    cout << "Queue reversed!" << endl;
-}
-
-int main() {
-    int n, value;
-
-    cout << "Enter the number of elements to enqueue: ";
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        cout << "Enter value to enqueue: ";
-        cin >> value;
-        Enqueue(value);
-    }
-
-    cout << "Dequeued: " << Dequeue() << endl;
-
-    cout << "Peek: " << Peek() << endl;
-
-    ReverseQueue();
-
-    cout << (isEmpty() ? "Queue is empty" : "Queue is not empty") << endl;
-    cout << (isFull() ? "Queue is full" : "Queue is not full") << endl;
-
-    return 0;
 }
