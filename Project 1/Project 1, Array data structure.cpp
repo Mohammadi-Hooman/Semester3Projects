@@ -7,7 +7,7 @@ int currentSize = 0;
 
 void Insert(int index, int value) {
     if (index <= 99 && index >= 0) {
-        for (int i = 98; i = index + 1; i--)
+        for (int i = 98; i = index; i--)
         {
             arr[index + 1] = arr[index];
         }
