@@ -33,7 +33,7 @@ int Peek() {
 	if (isEmpty()) {
 		cout << "stack is empty";
 	else {
-		return stack[0];
+		return stack[top];
 	}
 	}
 }
