@@ -33,14 +33,13 @@ int Dequeue() {
         cout << "Queue is empty" << endl;
         return -1;
     }
-    int result = queue[front];
     if (front == rear) {
         front = rear = -1;
     }
     else {
         front = (front + 1) % MaxSize;
     }
-    return result;
+    return queue[front];
 }
 
 int Peek() {
